@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador Mega da Virada</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="title-main">MEGA DA VIRADA</span>
+                    <span class="title-sub">Gerador de Apostas</span>
+                </h1>
+                <div class="header-decoration"></div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="input-section card">
+                <h2 class="section-title">📝 Seus Números</h2>
+                <p class="section-description">
+                    Digite seus números favoritos (de 1 a 60), separados por vírgula ou espaço.
+                    Mínimo de 6 números, recomendado até 20.
+                </p>
+
+                <div class="input-group">
+                    <textarea id="numbersInput" class="numbers-input"
+                        placeholder="Ex: 05, 12, 23, 30, 45, 51, 52, 53, 58, 60" rows="3"></textarea>
+                    <div id="inputFeedback" class="input-feedback"></div>
+                </div>
+
+                <div class="game-size-group">
+                    <label class="control-label">
+                        🎯 Números por Jogo
+                    </label>
+                    <div class="game-size-options">
+                        <label class="game-size-option">
+                            <input type="radio" name="gameSize" value="6" checked>
+                            <span class="option-text">6 Números</span>
+                        </label>
+                        <label class="game-size-option">
+                            <input type="radio" name="gameSize" value="7">
+                            <span class="option-text">7 Números</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="controls-row">
+                    <div class="control-group">
+                        <label for="quantityInput" class="control-label">
+                            🎲 Quantidade de Jogos
+                        </label>
+                        <input type="number" id="quantityInput" class="quantity-input" min="1" value="10"
+                            placeholder="Ex: 50" />
+                        <div id="maxCombinations" class="max-combinations"></div>
+                    </div>
+
+                    <button id="generateBtn" class="generate-btn" disabled>
+                        <span class="btn-icon">✨</span>
+                        <span class="btn-text">Gerar Apostas</span>
+                    </button>
+                </div>
+            </section>
+
+            <section id="resultsSection" class="results-section card hidden">
+                <div class="results-header">
+                    <h2 class="section-title">🎯 Apostas Geradas</h2>
+                    <div class="action-buttons">
+                        <button id="exportBtn" class="action-btn export-btn">
+                            <span class="btn-icon">💾</span>
+                            Exportar CSV
+                        </button>
+                        <button id="printBtn" class="action-btn print-btn">
+                            <span class="btn-icon">🖨️</span>
+                            Imprimir
+                        </button>
+                    </div>
+                </div>
+
+                <div id="resultsInfo" class="results-info"></div>
+                <div id="resultsContainer" class="results-container"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Desenvolvido para Mega da Virada • Boa Sorte! 🍀</p>
+        </footer>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Gerando combinações...</p>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>
