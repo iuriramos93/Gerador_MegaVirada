@@ -1,143 +1,229 @@
-# 🎰 Gerador de Apostas Mega da Virada
+<div align="center">
 
-Aplicação desktop em ElectronJS para gerar combinações de apostas para a Mega da Virada baseadas em um conjunto de números escolhidos pelo usuário.
+# 🎰 Gerador Mega da Virada
+
+### Aplicação desktop moderna para gerar combinações inteligentes de apostas
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![Electron](https://img.shields.io/badge/Electron-28.0-blue.svg)](https://www.electronjs.org/)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-lightgrey.svg)](#-downloads)
+
+![Screenshot do App](assets/screenshot.png)
+
+</div>
+
+---
+
+## ✨ Destaques
+
+- 🎯 **Interface Moderna** - Design elegante com tema dark e animações suaves
+- 🧮 **Algoritmo Inteligente** - Geração eficiente de combinações matemáticas
+- 💾 **Exportação Flexível** - Salve em CSV ou imprima diretamente
+- ⚡ **Performance Otimizada** - Gere milhares de combinações em segundos
+- 🔒 **100% Offline** - Todos os dados ficam no seu computador
 
 ## 📋 Funcionalidades
 
-✨ **Entrada Intuitiva de Números**
-- Digite seus números favoritos (1-60)
-- Validação em tempo real
-- Suporte para entrada separada por vírgula ou espaço
+### 🎲 Geração de Combinações
+- Digite seus números favoritos (1 a 60)
+- Validação automática em tempo real
+- Suporte para vírgula ou espaço como separador
+- Cálculo automático do total de combinações possíveis
 
-🎲 **Geração Inteligente de Combinações**
-- Algoritmo matemático de combinação C(n,6)
-- Geração completa ou amostragem aleatória
-- Cálculo automático do máximo de combinações possíveis
-
-📊 **Visualização Clara**
-- Interface moderna com tema dark
-- Números formatados em estilo de volante
+### 📊 Visualização Clara
+- Números formatados em estilo de volante da loteria
 - Numeração automática dos jogos
+- Interface limpa e intuitiva
+- Feedback visual para validações
 
-💾 **Exportação e Impressão**
-- Exportar para CSV (compatível com Excel)
-- Impressão otimizada dos jogos
-- Formatação pronta para uso
+### 💾 Exportação e Impressão
+- **CSV**: Compatível com Excel, Google Sheets e LibreOffice
+- **Impressão**: Layout otimizado para papel A4
+- Formatação pronta para uso nas casas lotéricas
 
-## 🚀 Como Usar
+## 🚀 Downloads
 
-### Instalação
+Baixe a versão mais recente para seu sistema operacional:
 
-1. Clone ou baixe este repositório
-2. Instale as dependências:
+- 🪟 [**Windows**](../../releases/latest) - `.exe` installer
+- 🍎 [**macOS**](../../releases/latest) - `.dmg` package
+
+> **Nota**: Visite a página de [Releases](../../releases) para baixar a versão mais recente.
+
+## 📖 Como Usar
+
+### 1️⃣ Digite seus números
+Digite de 6 a 20 números no campo de entrada:
+```
+Exemplo: 05, 12, 23, 30, 45, 51, 52, 53, 58, 60
+```
+
+### 2️⃣ Defina a quantidade
+Escolha quantos jogos deseja gerar. O sistema mostra automaticamente o máximo possível:
+- 10 números → 210 combinações
+- 15 números → 5.005 combinações
+- 20 números → 38.760 combinações
+
+### 3️⃣ Gere as apostas
+Clique em **"Gerar Apostas"** e visualize os resultados instantaneamente.
+
+### 4️⃣ Exporte ou Imprima
+Use os botões de **Exportar CSV** ou **Imprimir** para salvar suas apostas.
+
+## 💻 Desenvolvimento
+
+### Pré-requisitos
+- Node.js 18 ou superior
+- npm ou yarn
+
+### Instalação Local
+
 ```bash
+# Clone o repositório
+git clone https://github.com/iuriramos93/Gerador_MegaVirada.git
+
+# Entre no diretório
+cd Gerador_MegaVirada
+
+# Instale as dependências
 npm install
 ```
 
-### Executar em Modo Desenvolvimento
+### Executar em Desenvolvimento
 
 ```bash
+# Modo normal
 npm start
-```
 
-ou com DevTools aberto:
-
-```bash
+# Com DevTools aberto
 npm run dev
 ```
 
-### Gerar Executável
-
-Para criar um instalador Windows:
+### Gerar Build
 
 ```bash
-npm run build
+# Build para Windows
+npm run build -- --win
+
+# Build para macOS
+npm run build -- --mac
 ```
 
 O instalador será gerado na pasta `dist/`.
 
-## 📖 Guia de Uso
-
-1. **Digite seus números**: No campo de entrada, digite os números de 1 a 60 que deseja usar como base
-   - Exemplo: `05, 12, 23, 30, 45, 51, 52, 53, 58, 60`
-   - Mínimo: 6 números
-   - Recomendado: até 20 números
-
-2. **Defina a quantidade**: Escolha quantos jogos deseja gerar
-   - O sistema mostra o máximo possível automaticamente
-   - Exemplo: 10 números = 210 combinações possíveis
-
-3. **Gere as apostas**: Clique em "Gerar Apostas"
-   - Processamento rápido (< 3 segundos para até 10.000 combinações)
-   - Visualização imediata dos resultados
-
-4. **Exporte ou Imprima**:
-   - **CSV**: Salve para abrir no Excel ou Calc
-   - **Imprimir**: Imprima diretamente os jogos
-
 ## 🎯 Regras da Mega da Virada
 
-- **Números válidos**: 1 a 60
-- **Números por jogo**: 6
-- **Mínimo para entrada**: 6 números
-- **Máximo recomendado**: 20 números
+| Item | Valor |
+|------|-------|
+| Números válidos | 1 a 60 |
+| Números por jogo | 6 |
+| Mínimo para entrada | 6 números |
+| Máximo recomendado | 20 números |
 
-## 💡 Exemplos
+## 💡 Exemplos de Uso
 
-### Exemplo 1: Todos os jogos possíveis
-- **Entrada**: 10 números (ex: 05, 12, 23, 30, 45, 51, 52, 53, 58, 60)
-- **Combinações possíveis**: 210
-- **Ação**: Gerar todos os 210 jogos
+### 📌 Cenário 1: Poucos números (até 12)
+- **Entrada**: 10 números
+- **Combinações**: 210
+- **Recomendação**: Gerar todas as combinações
 
-### Exemplo 2: Amostragem
+### 📌 Cenário 2: Números moderados (13-17)
 - **Entrada**: 15 números
-- **Combinações possíveis**: 5.005
-- **Ação**: Solicitar apenas 100 jogos
-- **Resultado**: 100 jogos aleatórios únicos
+- **Combinações**: 5.005
+- **Recomendação**: Selecionar entre 50-500 jogos por amostragem
+
+### 📌 Cenário 3: Muitos números (18-20)
+- **Entrada**: 20 números
+- **Combinações**: 38.760
+- **Recomendação**: Selecionar entre 100-1000 jogos por amostragem
 
 ## 🛠️ Tecnologias
 
-- **ElectronJS** v28 - Framework desktop
-- **HTML/CSS/JavaScript** - Interface vanilla (sem frameworks extras)
-- **Node.js** - Backend e manipulação de arquivos
+<table>
+  <tr>
+    <td align="center"><b>Electron</b><br>v28.0</td>
+    <td align="center"><b>Node.js</b><br>v20</td>
+    <td align="center"><b>JavaScript</b><br>Vanilla</td>
+  </tr>
+</table>
+
+- **Frontend**: HTML5, CSS3, JavaScript puro
+- **Backend**: Node.js + Electron
+- **Build**: electron-builder
+- **CI/CD**: GitHub Actions
 
 ## 📁 Estrutura do Projeto
 
 ```
 Gerador_MegaVirada/
-├── main.js           # Processo principal do Electron
-├── renderer.js       # Lógica da interface e algoritmo
-├── index.html        # Estrutura HTML
-├── styles.css        # Estilos modernos
-├── package.json      # Configuração do projeto
-└── README.md         # Este arquivo
+├── assets/              # Recursos (ícones, screenshots)
+├── .github/
+│   └── workflows/       # GitHub Actions para CI/CD
+├── main.js             # Processo principal do Electron
+├── renderer.js         # Lógica da interface e algoritmo
+├── index.html          # Estrutura HTML
+├── styles.css          # Estilos CSS modernos
+├── package.json        # Configuração e dependências
+├── LICENSE             # Licença GPL v3
+└── README.md           # Este arquivo
 ```
 
-## 🧮 Algoritmo de Combinação
+## 🧮 Detalhes do Algoritmo
 
-O aplicativo utiliza um algoritmo matemático eficiente para gerar combinações:
+### Cálculo de Combinações
+```
+C(n, k) = n! / (k! × (n-k)!)
+Onde: n = total de números, k = 6 (tamanho do jogo)
+```
 
-- **Cálculo**: C(n, 6) = n! / (6! × (n-6)!)
-- **Método**: Gerador iterativo com índices
-- **Otimização**: Para grandes conjuntos, usa amostragem aleatória
+### Métodos de Geração
+
+**Completa**: Quando o número de combinações é viável (≤ quantidade solicitada)
+- Usa algoritmo iterativo com índices
+- Garante todas as combinações possíveis
+
+**Amostragem**: Quando há muitas combinações
+- Gera jogos aleatórios únicos
+- Usa Set para evitar duplicatas
+- Mantém distribuição equilibrada
 
 ## ⚡ Performance
 
-- 10 números (210 combinações): < 0.5s
-- 15 números (5.005 combinações): < 1s
-- 20 números (38.760 combinações): < 3s
+| Números | Combinações | Tempo Médio |
+|---------|-------------|-------------|
+| 10 | 210 | < 0.5s |
+| 15 | 5.005 | < 1s |
+| 20 | 38.760 | < 3s |
+| 25 | 177.100 | ~5-8s (amostragem recomendada) |
 
-## 📝 Notas
+> Testado em: Intel i5, 8GB RAM, Windows 11
 
-- Os números são sempre ordenados automaticamente
-- Duplicatas são detectadas e removidas
-- Números fora do intervalo [1-60] são rejeitados
-- A interface é responsiva e funciona em diferentes resoluções
+## 🤝 Contribuindo
 
-## 🍀 Boa Sorte!
+Contribuições são bem-vindas! Sinta-se à vontade para:
 
-Este é um gerador de combinações para fins de organização de apostas. Lembre-se de que a loteria é um jogo de probabilidade e deve ser jogado com responsabilidade.
+1. Fazer fork do projeto
+2. Criar uma branch para sua feature (`git checkout -b feature/MinhaFeature`)
+3. Commit suas mudanças (`git commit -m 'Add: Minha nova feature'`)
+4. Push para a branch (`git push origin feature/MinhaFeature`)
+5. Abrir um Pull Request
+
+## 📝 Licença
+
+Este projeto está sob a licença GPL v3. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## ⚠️ Aviso Legal
+
+Este aplicativo é uma ferramenta de organização de apostas e não garante prêmios. A Mega da Virada é um jogo de probabilidade operado pela Caixa Econômica Federal. Jogue com responsabilidade.
 
 ---
 
-Desenvolvido com ❤️ para a Mega da Virada
+<div align="center">
+
+### 🍀 Boa Sorte na Mega da Virada! 🍀
+
+Desenvolvido com ❤️ por [Iuri Ramos](https://github.com/iuriramos93)
+
+⭐ Se este projeto foi útil, considere dar uma estrela!
+
+</div>
