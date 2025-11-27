@@ -9,11 +9,12 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
     
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        os: [windows-latest, macos-latest]
     
     steps:
       - name: Checkout código
@@ -24,20 +25,25 @@ jobs:
         with:
           node-version: '20'
       
-      - name: Install dependencies
+      - name: Install dependencies (Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          npm install --no-optional --prefer-offline
+        timeout-minutes: 10
+      
+      - name: Install dependencies (macOS)
+        if: matrix.os == 'macos-latest'
         run: npm install
       
       - name: Build aplicação (Windows)
         if: matrix.os == 'windows-latest'
         run: npm run build -- --win
+        timeout-minutes: 15
       
       - name: Build aplicação (macOS)
         if: matrix.os == 'macos-latest'
         run: npm run build -- --mac
-      
-      - name: Build aplicação (Linux)
-        if: matrix.os == 'ubuntu-latest'
-        run: npm run build -- --linux
+        timeout-minutes: 15
       
       - name: Upload artifacts (Windows)
         if: matrix.os == 'windows-latest'
@@ -46,7 +52,6 @@ jobs:
           name: windows-build
           path: |
             dist/*.exe
-            dist/*.exe.blockmap
           retention-days: 5
       
       - name: Upload artifacts (macOS)
@@ -56,17 +61,6 @@ jobs:
           name: macos-build
           path: |
             dist/*.dmg
-            dist/*.dmg.blockmap
-          retention-days: 5
-      
-      - name: Upload artifacts (Linux)
-        if: matrix.os == 'ubuntu-latest'
-        uses: actions/upload-artifact@v4
-        with:
-          name: linux-build
-          path: |
-            dist/*.AppImage
-            dist/*.AppImage.blockmap
           retention-days: 5
 
   release:
@@ -91,7 +85,6 @@ jobs:
           files: |
             artifacts/windows-build/*
             artifacts/macos-build/*
-            artifacts/linux-build/*
           draft: false
           prerelease: false
           generate_release_notes: true
