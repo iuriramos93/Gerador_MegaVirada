@@ -71,11 +71,12 @@ function handleNumbersInput() {
   // Show feedback
   if (errors.length > 0) {
     showFeedback(errors.join(', '), 'error');
-  } else if (validNumbers.length < 6) {
-    showFeedback(`✓ ${validNumbers.length} números válidos. Mínimo necessário: 6 números`, 'warning');
+  } else if (validNumbers.length < gameSize) {
+    showFeedback(`✓ ${validNumbers.length} números válidos. Mínimo necessário: ${gameSize} números`, 'warning');
   } else if (validNumbers.length > 20) {
     showFeedback(`⚠️ ${validNumbers.length} números (máximo recomendado: 20). Isso pode gerar muitas combinações!`, 'warning');
-  } else {
+  }
+   else {
     showFeedback(`✓ ${validNumbers.length} números válidos`, 'success');
   }
 
@@ -126,7 +127,7 @@ function showFeedback(message, type) {
 }
 
 function updateGenerateButton() {
-  const isValid = userNumbers.length >= 6 && parseInt(quantityInput.value) > 0;
+  const isValid = userNumbers.length >= gameSize && parseInt(quantityInput.value) > 0;
   generateBtn.disabled = !isValid;
 }
 

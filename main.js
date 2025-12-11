@@ -14,6 +14,7 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false
     },
+    autoHideMenuBar:true,
     backgroundColor: '#0a0e27',
     icon: path.join(__dirname, 'assets/gerador_mega.png')
   });
